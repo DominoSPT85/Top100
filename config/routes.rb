@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :artist
+  get 'billboards/index'
+  get 'billboards/show'
+  get 'billboards/new'
+  resources :artists
   
 end
