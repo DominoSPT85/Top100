@@ -1,2 +1,12 @@
-<h1>Add New Songs/h1>
+<h1>Add a New Song</h1>
+
+<%= form_for [@artist, @song] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_area :title, required: true %>
+  <br />
+  <%= f.label :author %>
+  <%= f.text_field :author, placeholder: 'Leave Blank To Remain Anonymous' %>
+  <br />
+  <%= f.submit %>
+<% end %>
 
