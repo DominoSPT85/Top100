@@ -12,7 +12,7 @@ class BillboardsController < ApplicationController
   def new
     @billboard = Billboard.new
 
-    # render partial: 'billboards/form'
+    render partial: 'billboards/form'
   end
 
   def create
@@ -27,7 +27,7 @@ class BillboardsController < ApplicationController
   end
 
   def edit
-    #render partial: 'subs/form'
+    render partial: 'subs/form'
 
   end
 

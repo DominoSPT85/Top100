@@ -1,10 +1,11 @@
 class SongsController < ApplicationController
+    before_action :set_billboard
     before_action :set_artist
 
     before_action :set_song, only: [:show, :update, :edit, :destroy]
 
   def index
-    @songs = @artist.songs
+    @songs = @billboard.@artist.songs
   end
 
   def show
@@ -12,15 +13,15 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = @artist.songs.new
+    @song = @billboard.@artist.songs.new
     render partial: 'songs/form'
   end
 
   def create 
-    @song = @artist.songs.new(songs_params)
+    @song = @billboard.@artist.songs.new(song_params)
 
     if @song.save
-      redirect_to [@artist, @song]
+      redirect_to [@billboard, @artist, @song]
     else
       render :new
     end
@@ -33,7 +34,7 @@ class SongsController < ApplicationController
 
   def update
     if @song.update(song_params)
-      redirect_to [@artist, @song]
+      redirect_to [@bilboard, @artist, @song]
     else
       render :edit
     end
@@ -42,7 +43,7 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
-    redirect_to artist_songs_path
+    redirect_to billboard_artist_songs_path
   end
 
 
@@ -51,6 +52,10 @@ class SongsController < ApplicationController
 
     def song_params
       params.require(:song).permit(:title, :rank)
+    end
+
+    def set_billboard
+      @billboard = Billboard.find(params[:billboard_id])
     end
 
     def set_artist
