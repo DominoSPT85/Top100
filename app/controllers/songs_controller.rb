@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
     before_action :set_artist
 
-    before_action :set_song, only [:show, :update, :edit, :destroy]
+    before_action :set_song, only: [:show, :update, :edit, :destroy]
 
   def index
     @songs = @artist.songs
@@ -13,7 +13,7 @@ class SongsController < ApplicationController
 
   def new
     @song = @artist.songs.new
-    #render partial: 'songs/form'
+    render partial: 'songs/form'
   end
 
   def create 
@@ -28,7 +28,7 @@ class SongsController < ApplicationController
   end
 
   def edit
-    #render partial: 'songs/form'
+    render partial: 'songs/form'
   end
 
   def update

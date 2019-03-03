@@ -6,3 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Billboard.create(title: 'Top 100 Pop Hits')
+Billboard.create(title: 'Top 100 Country Hits')
+Billboard.create(title: 'Top 100 R&B Hits')
+Billboard.create(title: 'Top 100 Hip-Hop Hits')

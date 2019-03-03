@@ -1,0 +1,12 @@
+<%= form_for [@artist, @song] do |f| %>
+  <%= f.label 'Song Name:' %>
+  <%= f.text_area :name, required: true %>
+  <br />
+  <%= f.label :artist_id %>
+  <%= f.collection_select :artist_id, Artist.order(:name), :id, :name %>
+  <br />
+  <%= f.label :billboard_id %>
+  <% f.collection_select :billboard_id, Billboard.order(:title), :id, :title, include_blank:true %>
+  <br />
+  <%= f.submit %>
+<% end %>

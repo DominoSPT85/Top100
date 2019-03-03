@@ -1,11 +1,16 @@
 <h1>Add a New Song</h1>
 
 <%= form_for [@artist, @song] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_area :title, required: true %>
+  <%= f.label :name %>
+  <%= f.text_area :name, required: true %>
   <br />
-  <%= f.label :author %>
-  <%= f.text_field :author, placeholder: 'Leave Blank To Remain Anonymous' %>
+  <%= f.label 'Artist' %>
+  <% options = options_from_collection_for_select(@artist, 'id', 'name') %>
+  <%= f.select :all_val, options %>
+  <br />
+  <%= f.label 'On Billboard?' %>
+  <% options = options_from_collection_for_select(@billboard, 'id', 'title') %>
+  <%= f.select :all_cal, options %.
   <br />
   <%= f.submit %>
 <% end %>

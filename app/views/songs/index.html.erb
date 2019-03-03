@@ -1,4 +1,14 @@
-<h1><%= @artist.name %> - <%= @song.title %></h1>
+<h1><%= @artist.name %></h1>
+
+<% if @artist.songs %>
+  <% @artist.songs.each do |song| %>
+    <%= render 'songs/song', { song: song } %>
+  <% end %>
+<% else %>
+    <p>No songs have been added to this artist yet. </p>
+<% end %>
 
 
+<%= link_to "Back to Artist", artist_path(@artist) %>
 
+<%= link_to 'Add a new song', new_artist_song_path(@artist) %>
