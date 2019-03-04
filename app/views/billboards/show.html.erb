@@ -10,5 +10,6 @@
   <%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %>
   <%= link_to 'Delete Billboard', @billboard, method: :delete %>
   <%= link_to 'See Billboard Artists', billboard_artists_path(@billboard) %>
+  <%= link_to 'Add a new artist', new_billboard_artist_path(@billboard) %>
   <%= link_to 'Back to Billboards Home', billboards_path %>
 

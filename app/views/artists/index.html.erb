@@ -1,7 +1,12 @@
-<h1>Artists</h1>
+<h1><%= @billboard.title %> - Artists</h1>
 
-<% @artists.each do |artist| %>
-  <%= link_to artist.name, artist_path(artist) %>
-
-
+<% if @billboard.artists %>
+  <% @billboard.artists.each do |artist| %>
+    <%= artist.name %>
+  <% end %>
+<% else %>
+<p> This billboard has no artists yet. </p>
 <% end %>
+
+
+<%= link_to 'Add a new artist', new_billboard_artist_path(@billboard) %>
