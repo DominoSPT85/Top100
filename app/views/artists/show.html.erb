@@ -1,7 +1,18 @@
 <p>You added: <%= @artist.name %></p>
 
+<p>This artist has the songs: </p>
+
+<% if @artist.songs %>
+  <% @artist.songs.each do |song| %>
+    <%= render 'songs/song', { song: song } %>
+  <% end %>
+<% else %>
+    <p>This artist has no songs yet.</p>
+<% end %>
+
 <p>What would you like to do?</p>
 
   <%= link_to 'Edit Artist', edit_artist_path(@artist) %>
   <%= link_to 'Delete Artist', @artist, method: :delete %>
   <%= link_to 'See Artist Songs', artist_songs_path(@artist) %>
+  <%= link_to 'Add a new song to artist', new_artist_song_path(@artist) %>

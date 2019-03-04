@@ -1,9 +1,14 @@
 <h1><%= @billboard.title %></h1>
 
 
-<p> billboard songs go here</p>
+<% @billboard.artists.each do |artist| %>
+  <%= render 'artists/artist', { artist: artist } %>
+<% end %>
 
-
+<% @song_list = Songs.find(@billboard) %>
+<% @song_list.each do |song| %>
+  <%= song.song_name %>
+<% end %>
 
 <p>What would you like to do?</p>
 
