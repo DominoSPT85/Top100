@@ -6,7 +6,11 @@ class BillboardsController < ApplicationController
   end
 
   def show
-    
+    # @songs = Song.where(:billboard_id => @billboard)
+    # @artists = Artist.where(:billboard_id => @billboard)
+    @results = Song.joins(:artist).select('songs.song_name, artists.name').where(:billboard_id => @billboard)
+    # @results = @results.to_json
+   
   end
 
   def new

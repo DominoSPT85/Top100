@@ -1,19 +1,16 @@
 <h1><%= @billboard.title %></h1>
 
 
-<% @billboard.artists.each do |artist| %>
-  <%= render 'artists/artist', { artist: artist } %>
-<% end %>
+<%= @results[0]['name'] %> - <%= @results[0]['song_name'] %>
 
-<% @song_list = Songs.find(@billboard) %>
-<% @song_list.each do |song| %>
-  <%= song.song_name %>
-<% end %>
+
+  
+
 
 <p>What would you like to do?</p>
 
   <%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %>
-  <%= link_to 'Delete Billboard', @billboard, method: :delete %>
+  <%= link_to 'Delete Billboard', @billboard, :confirm => 'Are you sure?', :method => :delete %>
   <%= link_to 'See Billboard Artists', billboard_artists_path(@billboard) %>
   <%= link_to 'Add a new artist', new_billboard_artist_path(@billboard) %>
   <%= link_to 'Back to Billboards Home', billboards_path %>
