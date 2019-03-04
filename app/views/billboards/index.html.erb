@@ -4,7 +4,9 @@
   <%= billboard.title %>
 
   <%= link_to 'Show Billboard', billboard_path(billboard) %>
-
-  <%= link_to 'Create new billboard', new_billboard_path(billboard) %>
-
 <% end %>
+
+
+  <%= link_to 'Create new billboard', new_billboard_path(@billboard) %>
+
+
