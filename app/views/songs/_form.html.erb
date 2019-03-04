@@ -1,14 +1,9 @@
-<%= form_for [@artist, @song] do |f| %>
-  <%= f.label 'Song Name:' %>
-  <%= f.text_field :name, required: true %>
+<h1><%= @song.id ? 'Edit Song' : 'Create Song' %></h1>
+<%= form_for [@billboard, @artist, @song] do |f| %>
+  <%= f.label :song_name %>
+  <%= f.text_field :song_name, required: true %>
   <br />
-  <!--<%= f.label :artist_id %>
-  <%= f.collection_select :artist_id, Artist.order(:name), :id, :name %>-->
-  <%= f.label :rank %>
-  <%= f.text_field :rank %>
-  <br />
-  <%= f.label :billboard_id %>
-  <%= f.collection_select :billboard_id, Billboard.order(:title), :id, :title, include_blank:true %>
-  <br />
+  <%= f.label :billboard_id %><br />
+  <%= f.collection_select :billboard_id, Billboard.order(:title), :id, :title, include_blank: true %>
   <%= f.submit %>
 <% end %>
