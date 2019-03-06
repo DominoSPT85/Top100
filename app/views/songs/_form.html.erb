@@ -1,7 +1,13 @@
 <h1><%= @song.id ? 'Edit Song' : 'Create Song' %></h1>
-<%= form_for [@billboard, @artist, @song] do |f| %>
+<%= form_with(model: [@billboard, @song], local: true, class: 'ui form') do |f| %>
   <%= f.label :song_name %>
   <%= f.text_field :song_name, required: true %>
+  <br/>
+  <%= f.label :rank %>
+  <%= f.text_field :rank %>
+  <br/>
+  <%= f.label :artist_id %>
+  <%= f.select :artist_id,  @artist.collect { |a| [a.name, a.id] }
   <br />
   <%= f.label :billboard_id %><br />
   <%= f.collection_select :billboard_id, Billboard.order(:title), :id, :title, include_blank: true %>

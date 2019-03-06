@@ -1,6 +1,7 @@
 <h1>Billboards</h1>
+<hr>
 
-<ul class = 'list-group'>
+<ul>
 
 <%= @billboards.each do |billboard| %>
 
@@ -10,6 +11,8 @@
 <% end %>
 
 </ul>
+
   <%= link_to 'Create new billboard', new_billboard_path(@billboard) %>
+  <%= link_to 'Add an artist', new_artist_path %>
 
 

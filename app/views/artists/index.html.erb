@@ -1,13 +1,13 @@
-<h1><%= @billboard.title %> - Artists</h1>
+<h1><%= Artists %></h1>
+<hr>
 
-<% if @billboard.artists %>
-  <% @billboard.artists.each do |artist| %>
-    <%= artist.name %>
+<h2><%= @artists.length <= 0 ? "No Artists have been added yet." : "" %></h2>
+  
+<ul>
+  <% @artists.each do |artist| %>
+    <li><%= artist.name %></li>
   <% end %>
-<% else %>
-<p> This billboard has no artists yet. </p>
-<% end %>
+</ul>
 
-
-<%= link_to 'Add a new artist', new_billboard_artist_path(@billboard) %>
-<%= link_to 'Back to Billboard', billboard_path(@billboard) %>
+<%= link_to 'Add a new artist', new_artist_path %>
+<%= link_to 'To Billboards', billboards_path) %>

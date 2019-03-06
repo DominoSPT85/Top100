@@ -1,14 +1,7 @@
 <h1><%= @billboard.title %></h1>
+<hr>
 
-<% if @results != [] %>
-<div class= 'ui list'>
-  <%= @results.each do |result| %>
-    <div class= 'item'><%= result.song_name %> - <%= result.name %></li>
-  <% end %>
-</div>
-<% else %>
-  <p> There are no songs on this billboard yet.</p>
-<% end %>
+<h2><%= @billboard.songs length <= 0 ? "There are no songs on this Billboard yet." : "" %></h2>
 
   
 
@@ -18,4 +11,5 @@
   <%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %>
   <%= link_to 'Delete Billboard', @billboard, :confirm => 'Are you sure?', :method => :delete %>
   <%= link_to 'Back to Billboards Home', billboards_path %>
+  <%= link_to 'Add a Song to this billboard', new_billboard_songs_path(@billboard)
 
