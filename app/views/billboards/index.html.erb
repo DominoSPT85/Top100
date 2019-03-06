@@ -1,18 +1,21 @@
-<h1>Billboards</h1>
+<div class='column'>
+
+<h1 class='ui header'>Billboards</h1>
 <hr>
 
-<ul>
+
+<div class='ui list'>
 
 <%= @billboards.each do |billboard| %>
 
-  <li class = 'list-group-item'><%= billboard.title %>
+  <div class='item'><%= billboard.title %>
 
-  <%= link_to 'Show Billboard', billboard_path(billboard) %></li>
+  <%= link_to 'Show Billboard', billboard_path(billboard) %></div>
 <% end %>
 
-</ul>
+</div>
 
   <%= link_to 'Create new billboard', new_billboard_path(@billboard) %>
   <%= link_to 'Add an artist', new_artist_path %>
-
+</div>
 

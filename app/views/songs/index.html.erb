@@ -1,5 +1,5 @@
 <h1><%= @artist.name %></h1>
-<p>Songs</p>
+<p>Song List</p>
 
 
 <% if @artist.songs %>
@@ -10,7 +10,9 @@
     <p>No songs have been added to this artist yet. </p>
 <% end %>
 
-
-<%= link_to "Back to Artist", artist_path(@artist) %>
-
 <%= link_to 'Add a new song', new_artist_song_path(@artist) %>
+<br>
+<hr>
+<br>
+<%= link_to "Back to Artist", artist_path(@artist) %>
+<%= link_to "Billboards Home", billboards_path %>

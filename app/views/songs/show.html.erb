@@ -1,6 +1,10 @@
 <p>You added the song:<%= @song.song_name %> by <%= @artist.name %></p>
 
 
-<%= link_to 'Back to Billboards Home', billboards_path %>
-
-<%= link_to 'Delete Song', @song, method: :delete, class: 'ui red button inverted' %>
+<%= link_to 'Edit Song', edit_artist_song([@artist, @song]) %>
+<%= link_to 'Delete Song', [@artist, @song], method: :delete %>
+<br>
+<hr>
+<br>
+<%= link_to 'Back to Artist Page', artist_path(@artist) %>
+<%= link_to 'To Billboards Home', billboards_path %>
