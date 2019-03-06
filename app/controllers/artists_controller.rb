@@ -1,26 +1,25 @@
 class ArtistsController < ApplicationController
-  before_action :set_billboard
 
   before_action :set_artist, only: [:show, :update, :edit, :destroy]
 
   def index
-    @artists = @billboard.artists
+    @artists = Artist.all
   end
 
   def show
   end
 
   def new
-    @artist = @billboard.artists.new
+    @artist = Artist.new
 
     render partial: 'artists/form'
   end
 
   def create
-    @artist = @billboard.artists.new(artist_params)
+    @artist = Artist.new(artist_params)
 
     if @artist.save
-      redirect_to [@billboard, @artist]
+      redirect_to @artist
     else
       render :new
     end
@@ -32,7 +31,7 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      redirect_to [@billboard, @artist]
+      redirect_to @artist
     else
       render :edit
     end
@@ -40,7 +39,7 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist.destroy
-    redirect_to billboard_artists_path
+    redirect_to artists_path
 
   end
 
@@ -50,10 +49,6 @@ class ArtistsController < ApplicationController
 
       def artist_params
         params.require(:artist).permit(:name)
-      end
-
-      def set_billboard
-        @billboard = Billboard.find(params[:billboard_id])
       end
 
       def set_artist

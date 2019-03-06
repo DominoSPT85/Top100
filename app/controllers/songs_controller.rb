@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def new
+    @billboard = Billboard.all - @artist.billboards
     @song = @artist.songs.new
     render partial: 'songs/form'
   end
@@ -50,7 +51,7 @@ class SongsController < ApplicationController
   private
 
     def song_params
-      params.require(:song).permit(:song_name, :rank, :billboard_id)
+      params.require(:song).permit(:song_name, :rank, :billboard_id, :artist_id)
     end
 
 
