@@ -1,8 +1,12 @@
 <h1><%= @billboard.title %></h1>
 
-
-<%= @results[0]['name'] %> - <%= @results[0]['song_name'] %>
-
+<% if @results != [] %>
+  <%= @results.each do |result| %>
+    <%= result.song_name %> - <%= result.name %>
+  <% end %>
+<% else %>
+  <p> There are no songs on this billboard yet.</p>
+<% end %>
 
   
 

@@ -9,7 +9,8 @@ class BillboardsController < ApplicationController
     # @songs = Song.where(:billboard_id => @billboard)
     # @artists = Artist.where(:billboard_id => @billboard)
     @results = Song.joins(:artist).select('songs.song_name, artists.name').where(:billboard_id => @billboard)
-    # @results = @results.to_json
+    # @results = @results.to_json(only: [:name, :song_name])
+    
    
   end
 

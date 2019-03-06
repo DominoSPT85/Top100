@@ -1,12 +1,15 @@
 <h1>Billboards</h1>
 
-<%= @billboards.each do |billboard| %>
-  <%= billboard.title %>
+<ul class = 'list-group'>
 
-  <%= link_to 'Show Billboard', billboard_path(billboard) %>
+<%= @billboards.each do |billboard| %>
+
+  <li class = 'list-group-item'><%= billboard.title %>
+
+  <%= link_to 'Show Billboard', billboard_path(billboard) %></li>
 <% end %>
 
-
+</ul>
   <%= link_to 'Create new billboard', new_billboard_path(@billboard) %>
 
 
