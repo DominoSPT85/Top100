@@ -1,9 +1,9 @@
 <h1><%= @artist.id ? 'Edit Artist' : 'Add new Artist' %></h1>
 
-<%= form_for [@billboard, @artist] do |a| %>
+<%= form_with(model: @artist, local: true) do |a| %>
   <%= a.label :name %>
   <%= a.text_field :name, required: true, autofocus: true %>
 
-  <%= a.submit, class: 'ui button' %>
+  <%= a.submit nil %>
 
 <% end %>

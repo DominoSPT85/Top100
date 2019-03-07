@@ -13,11 +13,12 @@
 
 <div class='ui cards'>
   
-  <%= @billboards.each do |billboard| %>
+  <% @billboards.each do |billboard| %>
     <div class='card'>
     <div class='item'>
-        <%= image_tag('music-placeholder-small.png') %>
-        <%= link_to billboard.title, billboard %>
+        <%= image_tag('music-placeholder-smallest.png') %>
+        <span class='billboard-list'><%= billboard.title %></span>
+        <%= link_to 'Show', billboard %>
       </div>
     </div>
   <% end %>
