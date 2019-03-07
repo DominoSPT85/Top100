@@ -1,18 +1,26 @@
-<div class='column'>
+<div class='ui top fixed menu inverted'>
+  <div class='item'>
+    <%= image_tag('billboard-logo.jpg') %>
+  </div>
+
+</div>
+
+
+<div class='column', style='margin-top: 50px;'>
 
 <h1 class='ui header'>Billboards</h1>
 <hr>
 
-
-<div class='ui list'>
-
-<%= @billboards.each do |billboard| %>
-
-  <div class='item'><%= billboard.title %>
-
-  <%= link_to 'Show Billboard', billboard_path(billboard) %></div>
-<% end %>
-
+<div class='ui cards'>
+  
+  <%= @billboards.each do |billboard| %>
+    <div class='card'>
+    <div class='item'>
+        <%= image_tag('music-placeholder-small.png') %>
+        <%= link_to billboard.title, billboard %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
   <%= link_to 'Create new billboard', new_billboard_path(@billboard) %>
