@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.heading {
+  color: white;
+  margin-top: 50px;
+}
 
-.billboard-list {
-  font-size: 16px;
+.result {
+  background-color: white;
+  border: 1px solid darkgrey;
+  padding: 10px;
+  height: 50px;
+  margin: 15px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+#rank {
+  font-size: 20px;
 }
